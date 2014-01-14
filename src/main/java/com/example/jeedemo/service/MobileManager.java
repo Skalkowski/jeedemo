@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 
 import com.example.jeedemo.domain.Mobile;
 import com.example.jeedemo.domain.Osoba;
-import com.example.jeedemo.domain.Sklep;
 
 
 @Stateless
@@ -25,16 +24,17 @@ public class MobileManager {
         Osoba osoba = new Osoba();
     	osoba = entity.find(Osoba.class, o);
         
-        Sklep s = new Sklep();
-    	s.setNazwa("Kloc");
-    	s.setMobiles(mobiles);
+        
         
     	mobile.setOwner(osoba);
-        
-        
-        entity.persist(s);
         entity.persist(mobile);
     	
+    }
+    
+    @SuppressWarnings("unchecked")
+	public List<Mobile> getMobiles(){
+     	
+    	return entity.createNamedQuery("select.mobile").getResultList();
     }
 	
 }

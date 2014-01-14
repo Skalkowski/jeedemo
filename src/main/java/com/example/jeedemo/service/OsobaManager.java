@@ -1,5 +1,7 @@
 package com.example.jeedemo.service;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,6 +16,15 @@ public class OsobaManager {
 		
 		public void addOsoba(Osoba osoba){
 			sql.persist(osoba); //zapisanie do bazy danych
+		}
+		
+		@SuppressWarnings("unchecked")
+		public List<Osoba> selectOsoba(){
+			return sql.createNamedQuery("select.osoba").getResultList();
+		}
+		public void deleteOsoba (Osoba osoba){
+			osoba = sql.find(Osoba.class, osoba.getId());
+			sql.remove(osoba);
 		}
 	
 }

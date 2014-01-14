@@ -3,6 +3,7 @@ package com.example.jeedemo.web;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -17,6 +18,7 @@ public class OsobaFormBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Osoba osoba = new Osoba();
+	private ListDataModel<Osoba> osoby =new ListDataModel<Osoba>();
 
 	@Inject
 	OsobaManager osobamanager;
@@ -35,5 +37,15 @@ public class OsobaFormBean implements Serializable {
 		this.osoba = osoba;
 	}
 	
+	public ListDataModel<Osoba> getOsoby (){
+		osoby.setWrappedData(osobamanager.selectOsoba());
+		return osoby;
+	}
+	
+	public String deleteOsoba(){
+		Osoba osoba = osoby.getRowData();
+		osobamanager.deleteOsoba(osoba);
+		return null;
+	}
 	
 }
