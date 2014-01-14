@@ -33,7 +33,7 @@ public class Sklep {
 		this.nazwa = nazwa;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	public Collection<Mobile> getMobiles() {
 		return mobiles;
 	}

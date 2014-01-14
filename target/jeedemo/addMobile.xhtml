@@ -12,7 +12,7 @@
 			<h:panelGrid columns="2">
 
 				<h:outputText value="Marka" />
-				<h:inputText id="marka" value="#{mobileForm.mobile.marka}"
+				<h:inputText id="marka" value="#{mobileF.mobile.marka}"
 					required="#{true}" />
 
 			</h:panelGrid>
@@ -20,11 +20,11 @@
 			<h:panelGrid columns="2">
 
 				<h:outputText value="Model" />
-				<h:inputText id="model" value="#{mobileForm.mobile.model}"
+				<h:inputText id="model" value="#{mobileF.mobile.model}"
 					required="#{true}" />
 			</h:panelGrid>
 
-			<h:commandButton value="Ok" action="#{mobileForm.saveMobile}" />
+			<h:commandButton value="Ok" action="#{mobileF.saveMobile}" />
 
 			<h:panelGrid>
 				<h:messages for="" />

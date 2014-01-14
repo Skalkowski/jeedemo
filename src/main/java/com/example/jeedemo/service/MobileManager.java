@@ -18,19 +18,18 @@ public class MobileManager {
 	@PersistenceContext
 	EntityManager entity;
 
-    public void addMobile(Mobile mobile) {
+    public void addMobile(Mobile mobile, int o) {
     	List<Mobile> mobiles = new ArrayList<Mobile>();
     	mobiles.add(mobile);
-        
-    	Osoba o = new Osoba();
-        o.setImie("Michal");
-        o.setNazwisko("Skalkowski");
+    	
+        Osoba osoba = new Osoba();
+    	osoba = entity.find(Osoba.class, o);
         
         Sklep s = new Sklep();
     	s.setNazwa("Kloc");
     	s.setMobiles(mobiles);
         
-    	mobile.setOwner(o);
+    	mobile.setOwner(osoba);
         
         
         entity.persist(s);

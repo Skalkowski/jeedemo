@@ -11,17 +11,25 @@ import com.example.jeedemo.service.MobileManager;
 
 
 @SessionScoped
-@Named("mobileForm")
+@Named("mobileF")
 public class MobileFormBean implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	private int id_osoba;
 	private Mobile mobile = new Mobile();
 
 	@Inject
 	MobileManager mobilemanager;
+	
+	public int getId_osoba() {
+		return id_osoba;
+	}
+
+	public void setId_osoba(int id_osoba) {
+		this.id_osoba = id_osoba;
+	}
 
 	public Mobile getMobile() {
 		return mobile;
@@ -32,7 +40,7 @@ public class MobileFormBean implements Serializable {
 	}
 
 	public String saveMobile() {
-		mobilemanager.addMobile(mobile);
+		mobilemanager.addMobile(mobile, id_osoba);
 		return null;
 	}
 
