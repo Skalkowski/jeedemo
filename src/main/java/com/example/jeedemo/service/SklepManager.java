@@ -26,4 +26,9 @@ public class SklepManager {
 			sklep.setMobiles(mobile);
 			sql.persist(sklep);
 		}
+		public List<Mobile> getMobile(Sklep sklep){
+			sklep = sql.find(Sklep.class, sklep.getId());
+			List<Mobile> mobile = new ArrayList<Mobile>(sklep.getMobiles());
+			return mobile;
+		}
 }
