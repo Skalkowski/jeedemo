@@ -26,7 +26,7 @@ public class OsobaFormBean implements Serializable {
 	
 	public String addOsoba(){
 		osobamanager.addOsoba(osoba);
-		return null;
+		return "showOsoba";
 	}
 
 	public Osoba getOsoba() {
@@ -45,7 +45,7 @@ public class OsobaFormBean implements Serializable {
 	public String deleteOsoba(){
 		Osoba osoba = osoby.getRowData();
 		osobamanager.deleteOsoba(osoba);
-		return null;
+		return "showOsoba";
 	}
 	
 }

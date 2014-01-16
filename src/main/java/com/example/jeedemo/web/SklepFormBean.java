@@ -40,7 +40,7 @@ public class SklepFormBean implements Serializable{
 	
 	public String addSklep(){
 		sklepmanager.addSklep(sklep, id_telefonow);
-		return null;
+		return "showSklep";
 	}
 	
 	public ListDataModel<Mobile> getMobile(){
@@ -56,7 +56,7 @@ public class SklepFormBean implements Serializable{
 	public String deleteSklep(){
 		Sklep sklep = sklepy.getRowData();
 		sklepmanager.deleteSklep(sklep);
-		return null;
+		return "showSklep";
 	}
 	
 

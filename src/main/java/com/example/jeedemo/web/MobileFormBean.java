@@ -45,7 +45,7 @@ public class MobileFormBean implements Serializable {
 
 	public String saveMobile() {
 		mobilemanager.addMobile(mobile, id_osoba);
-		return null;
+		return "showMobile";
 	}
 	
 	public ListDataModel<Mobile> getTelefony(){
@@ -56,7 +56,7 @@ public class MobileFormBean implements Serializable {
 	public String deleteMobile(){
 		Mobile mobile = mobiles.getRowData();
 		mobilemanager.deleteMobile(mobile);
-		return null;
+		return "showMobile";
 	}
 	
 
