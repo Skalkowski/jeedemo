@@ -15,26 +15,31 @@ import com.example.jeedemo.domain.Osoba;
 public class MobileManager {
 	
 	@PersistenceContext
-	EntityManager entity;
+	EntityManager sql;
 
     public void addMobile(Mobile mobile, int o) {
     	List<Mobile> mobiles = new ArrayList<Mobile>();
     	mobiles.add(mobile);
     	
         Osoba osoba = new Osoba();
-    	osoba = entity.find(Osoba.class, o);
+    	osoba = sql.find(Osoba.class, o);
         
         
         
     	mobile.setOwner(osoba);
-        entity.persist(mobile);
+        sql.persist(mobile);
     	
     }
     
     @SuppressWarnings("unchecked")
 	public List<Mobile> getMobiles(){
      	
-    	return entity.createNamedQuery("select.mobile").getResultList();
+    	return sql.createNamedQuery("select.mobile").getResultList();
     }
-	
+    public void deleteMobile (Mobile mobile){
+		mobile = sql.find(Mobile.class, mobile.getId());
+		sql.remove(mobile);
+	}
 }
+	
+

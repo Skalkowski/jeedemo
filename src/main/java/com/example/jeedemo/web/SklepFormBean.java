@@ -18,6 +18,7 @@ public class SklepFormBean implements Serializable{
 	private Sklep sklep = new Sklep();
 	private int[] id_telefonow;
 	private ListDataModel<Mobile> mobiles = new ListDataModel<Mobile>();
+	private ListDataModel<Sklep> sklepy = new ListDataModel<Sklep>();
 	@Inject
 	SklepManager sklepmanager;
 
@@ -45,6 +46,17 @@ public class SklepFormBean implements Serializable{
 	public ListDataModel<Mobile> getMobile(){
 		mobiles.setWrappedData(sklepmanager.getMobile(sklep));
 		return mobiles;
+	}
+	
+	public ListDataModel<Sklep> getSklepy (){
+		sklepy.setWrappedData(sklepmanager.selectSklep());
+		return sklepy;
+	}
+	
+	public String deleteSklep(){
+		Sklep sklep = sklepy.getRowData();
+		sklepmanager.deleteSklep(sklep);
+		return null;
 	}
 	
 

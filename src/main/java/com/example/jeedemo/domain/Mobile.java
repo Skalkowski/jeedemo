@@ -1,6 +1,5 @@
 package com.example.jeedemo.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,7 +37,7 @@ public class Mobile {
 		this.model = model;
 	}
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	public Osoba getOwner() {
 		return owner;
 	}

@@ -7,7 +7,7 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:dataTable value="#{sklepF.sklep}" var="i">
+			<h:dataTable value="#{sklepF.sklepy}" var="i">
 				<f:facet name="header">#{msg.personAllLabel}</f:facet>
 				<h:column>
 					<f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
@@ -15,15 +15,9 @@
 				</h:column>
 
 				<h:column>
-					<h:dataTable value = "#{sklepF.mobile}" var = "i" >
-						<h:outputText value = "#{i.model}" />
-					</h:dataTable>
-				</h:column>
-
-				<h:column>
 					<f:facet name="header">#{msg.action}</f:facet>
 					<h:commandLink value="#{msg.actionDelete}"
-						action="#{osobaF.deleteOsoba}" />
+						action="#{sklepF.deleteSklep}" />
 				</h:column>
 
 			</h:dataTable>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable value="#{mobileF.telefony}" var="i">
+				<f:facet name="header">#{msg.personAllLabel}</f:facet>
+				<h:column>
+					<f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
+					<h:outputText value="#{i.marka}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.personPinLabel}</f:facet>
+					<h:outputText value="#{i.model}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.action}</f:facet>
+					<h:commandLink value="#{msg.actionDelete}"
+						action="#{mobileF.deleteMobile}" />
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

@@ -53,6 +53,11 @@ public class MobileFormBean implements Serializable {
 		return mobiles;
 		
 	}
+	public String deleteMobile(){
+		Mobile mobile = mobiles.getRowData();
+		mobilemanager.deleteMobile(mobile);
+		return null;
+	}
 	
 
 }
