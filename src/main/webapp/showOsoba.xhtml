@@ -27,6 +27,20 @@
 				<h:commandButton value="Dodaj" action="addOsoba" />
 
 			</h:dataTable>
+			
+			
+			
+			
+			<h:panelGrid columns="2">
+				<h:inputText id="imie" value="#{osobaF.imie}"
+					required="#{true}" />
+			</h:panelGrid>
+
+			<h:commandButton value="Szukaj"
+				action="#{osobaF.osobyWhere}" />
+			
+			
+			
 		</h:form>
 
 	</ui:define>

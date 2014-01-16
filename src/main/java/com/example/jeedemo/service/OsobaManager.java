@@ -26,5 +26,11 @@ public class OsobaManager {
 			osoba = sql.find(Osoba.class, osoba.getId());
 			sql.remove(osoba);
 		}
+		
+		@SuppressWarnings("unchecked")
+		public List<Osoba> selectOsobaWhere(String imie){
+			
+			return sql.createNamedQuery("where.osoba").setParameter("imie", imie).getResultList();
+		}
 	
 }
