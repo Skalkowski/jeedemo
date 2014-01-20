@@ -13,11 +13,8 @@
 
 			<h:commandButton value="Dodaj" action="addOsoba?faces-redirect=true" />
 			<h:commandButton value="Zobacz wszystkie" action="showOsoba?faces-redirect=true" />
-			<h:panelGrid>
-				<h:messages for="" />
-				<h:messages id="messages" showDetail="#{true}"
-					showSummary="#{false}" />
-			</h:panelGrid>
+			<h:commandButton value="Szukaj po imieniu" action="showOsobaWhere?faces-redirect=true" />
+			
 
 		</h:form>
 

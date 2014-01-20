@@ -19,6 +19,7 @@ public class OsobaFormBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Osoba osoba = new Osoba();
 	private ListDataModel<Osoba> osoby =new ListDataModel<Osoba>();
+	private ListDataModel<Osoba> osobyWhere =new ListDataModel<Osoba>();
 	private String imie;
 
 	@Inject
@@ -26,6 +27,14 @@ public class OsobaFormBean implements Serializable {
 	
 	
 	
+	public ListDataModel<Osoba> getOsobyWhere() {
+		return osobyWhere;
+	}
+
+	public void setOsobyWhere(ListDataModel<Osoba> osobyWhere) {
+		this.osobyWhere = osobyWhere;
+	}
+
 	public String getImie() {
 		return imie;
 	}
@@ -55,6 +64,11 @@ public class OsobaFormBean implements Serializable {
 	public ListDataModel<Osoba> getOsobyWhere (String imie){
 		osoby.setWrappedData(osobamanager.selectOsobaWhere(imie));
 		return osoby;
+	}
+	
+	public String getOsobyWheree(){
+		osobyWhere.setWrappedData(osobamanager.selectOsobaWhere(imie));
+		return null;
 	}
 	
 	public String deleteOsoba(){

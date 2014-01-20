@@ -8,14 +8,14 @@
 	<ui:define name="content">
 		<h:form>
 			<h:dataTable value="#{mobileF.telefony}" var="i">
-				<f:facet name="header">#{msg.personAllLabel}</f:facet>
+				<f:facet name="header">Komorki</f:facet>
 				<h:column>
-					<f:facet name="header">#{msg.personFirstNameLabel}</f:facet>
+					<f:facet name="header">Marka</f:facet>
 					<h:outputText value="#{i.marka}" />
 				</h:column>
 
 				<h:column>
-					<f:facet name="header">#{msg.personPinLabel}</f:facet>
+					<f:facet name="header">Model</f:facet>
 					<h:outputText value="#{i.model}" />
 				</h:column>
 
