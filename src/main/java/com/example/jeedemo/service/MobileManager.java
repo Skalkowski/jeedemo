@@ -40,6 +40,12 @@ public class MobileManager {
 		mobile = sql.find(Mobile.class, mobile.getId());
 		sql.remove(mobile);
 	}
+    
+    @SuppressWarnings("unchecked")
+	public List<Osoba> selectMobileWhere(String model){
+		
+		return sql.createNamedQuery("where.mobile").setParameter("model", model).getResultList();
+	}
 }
 	
 

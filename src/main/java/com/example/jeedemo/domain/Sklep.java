@@ -7,10 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name = "select.sklep", query = "select s from Sklep s")
+@NamedQueries({
+	@NamedQuery(name = "select.sklep", query = "select s from Sklep s"),
+	@NamedQuery(name = "where.sklep", query = "select s from Sklep s where s.nazwa = :nazwa")
+})
 public class Sklep {
 	private int id;
 	private String nazwa;

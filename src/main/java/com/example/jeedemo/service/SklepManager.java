@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.example.jeedemo.domain.Mobile;
+import com.example.jeedemo.domain.Osoba;
 import com.example.jeedemo.domain.Sklep;
 
 @Stateless
@@ -40,6 +41,12 @@ public class SklepManager {
 		@SuppressWarnings("unchecked")
 		public List<Sklep> selectSklep(){
 			return sql.createNamedQuery("select.sklep").getResultList();
+		}
+		
+		@SuppressWarnings("unchecked")
+		public List<Osoba> selectSklepWhere(String nazwa){
+			
+			return sql.createNamedQuery("where.sklep").setParameter("nazwa", nazwa).getResultList();
 		}
 }
 		

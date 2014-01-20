@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.example.jeedemo.domain.Mobile;
+import com.example.jeedemo.domain.Osoba;
 import com.example.jeedemo.domain.Sklep;
 import com.example.jeedemo.service.SklepManager;
 
@@ -19,8 +20,30 @@ public class SklepFormBean implements Serializable{
 	private int[] id_telefonow;
 	private ListDataModel<Mobile> mobiles = new ListDataModel<Mobile>();
 	private ListDataModel<Sklep> sklepy = new ListDataModel<Sklep>();
+	private String nazwa;
+	private ListDataModel<Osoba> sklepWhere =new ListDataModel<Osoba>();
+	
 	@Inject
 	SklepManager sklepmanager;
+
+	
+	
+	
+	public ListDataModel<Osoba> getSklepWhere() {
+		return sklepWhere;
+	}
+
+	public void setSklepWhere(ListDataModel<Osoba> sklepWhere) {
+		this.sklepWhere = sklepWhere;
+	}
+
+	public String getNazwa() {
+		return nazwa;
+	}
+
+	public void setNazwa(String nazwa) {
+		this.nazwa = nazwa;
+	}
 
 	public Sklep getSklep() {
 		return sklep;
@@ -57,6 +80,11 @@ public class SklepFormBean implements Serializable{
 		Sklep sklep = sklepy.getRowData();
 		sklepmanager.deleteSklep(sklep);
 		return "showSklep";
+	}
+	
+	public String getSklepWheree(){
+		sklepWhere.setWrappedData(sklepmanager.selectSklepWhere(nazwa));
+		return null;
 	}
 	
 

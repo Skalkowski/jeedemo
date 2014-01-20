@@ -21,12 +21,27 @@ public class MobileFormBean implements Serializable {
 	private int id_osoba;
 	private Mobile mobile = new Mobile();
 	private ListDataModel<Mobile> mobiles = new ListDataModel<Mobile>(); 
-	
+	private ListDataModel<Mobile> mobileWhere = new ListDataModel<Mobile>();
+	private String model;
 	@Inject
 	MobileManager mobilemanager;
 	
-	
-	
+	public ListDataModel<Mobile> getMobileWhere() {
+		return mobileWhere;
+	}
+
+	public void setMobileWhere(ListDataModel<Mobile> mobileWhere) {
+		this.mobileWhere = mobileWhere;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
 	public int getId_osoba() {
 		return id_osoba;
 	}
@@ -57,6 +72,16 @@ public class MobileFormBean implements Serializable {
 		Mobile mobile = mobiles.getRowData();
 		mobilemanager.deleteMobile(mobile);
 		return "showMobile";
+	}
+	
+	public String getMobileWheree(){
+		mobileWhere.setWrappedData(mobilemanager.selectMobileWhere(model));
+		return null;
+	}
+	
+	public ListDataModel<Mobile> getMobileWhere (String model){
+		mobiles.setWrappedData(mobilemanager.selectMobileWhere(model));
+		return mobiles;
 	}
 	
 

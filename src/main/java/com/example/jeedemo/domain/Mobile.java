@@ -5,12 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 
 @Entity
-@NamedQuery(name = "select.mobile", query = "Select m from Mobile m")
-public class Mobile {
+
+@NamedQueries({
+	@NamedQuery(name = "select.mobile", query = "Select m from Mobile m"),
+	@NamedQuery(name = "where.mobile", query = "select m from Mobile m where m.model = :model")
+})
+	public class Mobile {
 	private int id;
 	private String marka;
 	private String model;
