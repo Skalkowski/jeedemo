@@ -17,6 +17,11 @@
 				<h:column>
 					<f:facet name="header">Model</f:facet>
 					<h:outputText value="#{i.model}" />
+				</h:column>				
+				
+				<h:column>
+					<f:facet name="header">Osoba</f:facet>
+					<h:outputText value="#{i.owner.nazwisko}"/>
 				</h:column>
 
 				<h:column>
@@ -24,6 +29,9 @@
 					<h:commandLink value="#{msg.actionDelete}"
 						action="#{mobileF.deleteMobile}" />
 				</h:column>
+				 <h:column>
+		        <h:commandLink value="Edytuj" action="#{mobileF.edit(i)}" />
+		        </h:column>
 
 			</h:dataTable>
 		</h:form>

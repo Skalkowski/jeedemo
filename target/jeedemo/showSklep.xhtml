@@ -9,9 +9,20 @@
 		<h:form>
 			<h:dataTable value="#{sklepF.sklepy}" var="i">
 				<f:facet name="header">Sklep</f:facet>
+
+
 				<h:column>
 					<f:facet name="header">Nazwa</f:facet>
 					<h:outputText value="#{i.nazwa}" />
+				</h:column>
+
+				<h:column>
+				<f:facet name="header">Telefony w sklepie</f:facet>
+					<h:dataTable value="#{sklepF.mobilki}" var="mo">
+						<h:column>
+							<h:outputText value="#{mo.model}" />
+						</h:column>
+					</h:dataTable>
 				</h:column>
 
 				<h:column>
@@ -19,8 +30,11 @@
 					<h:commandLink value="#{msg.actionDelete}"
 						action="#{sklepF.deleteSklep}" />
 				</h:column>
-
+				 <h:column>
+		        	<h:commandLink value="Edytuj" action="#{sklepF.edit(i)}" />
+		        </h:column>
 			</h:dataTable>
+
 		</h:form>
 
 	</ui:define>

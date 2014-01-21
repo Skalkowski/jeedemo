@@ -14,21 +14,28 @@ import com.example.jeedemo.service.SklepManager;
 
 @SessionScoped
 @Named("sklepF")
-public class SklepFormBean implements Serializable{
+public class SklepFormBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Sklep sklep = new Sklep();
 	private int[] id_telefonow;
 	private ListDataModel<Mobile> mobiles = new ListDataModel<Mobile>();
 	private ListDataModel<Sklep> sklepy = new ListDataModel<Sklep>();
 	private String nazwa;
-	private ListDataModel<Osoba> sklepWhere =new ListDataModel<Osoba>();
-	
+	private ListDataModel<Osoba> sklepWhere = new ListDataModel<Osoba>();
+	private ListDataModel<Mobile> mobilki = new ListDataModel<Mobile>();
+
 	@Inject
 	SklepManager sklepmanager;
 
-	
-	
-	
+	public ListDataModel<Mobile> getMobilki() {
+		mobilki.setWrappedData(sklepmanager.getMobile(sklepy.getRowData()));
+		return mobilki;
+	}
+
+	public void setMobilki(ListDataModel<Mobile> mobilki) {
+		this.mobilki = mobilki;
+	}
+
 	public ListDataModel<Osoba> getSklepWhere() {
 		return sklepWhere;
 	}
@@ -60,32 +67,41 @@ public class SklepFormBean implements Serializable{
 	public void setId_telefonow(int[] id_telefonow) {
 		this.id_telefonow = id_telefonow;
 	}
-	
-	public String addSklep(){
+
+	public String addSklep() {
 		sklepmanager.addSklep(sklep, id_telefonow);
 		return "showSklep";
 	}
-	
-	public ListDataModel<Mobile> getMobile(){
+
+	public ListDataModel<Mobile> getMobile() {
 		mobiles.setWrappedData(sklepmanager.getMobile(sklep));
 		return mobiles;
 	}
-	
-	public ListDataModel<Sklep> getSklepy (){
+
+	public ListDataModel<Sklep> getSklepy() {
 		sklepy.setWrappedData(sklepmanager.selectSklep());
 		return sklepy;
 	}
-	
-	public String deleteSklep(){
+
+	public String deleteSklep() {
 		Sklep sklep = sklepy.getRowData();
 		sklepmanager.deleteSklep(sklep);
 		return "showSklep";
 	}
-	
-	public String getSklepWheree(){
+
+	public String getSklepWheree() {
 		sklepWhere.setWrappedData(sklepmanager.selectSklepWhere(nazwa));
 		return null;
 	}
 	
-
+	public String edit(Sklep sklep) {
+        this.sklep = sklep;
+        return "updateSklep?faces-redirect=true";
+    }
+	
+	public String updateSklep() {
+		sklepmanager.updateSklep(this.sklep);
+		
+		return "showSklep?faces-redirect=true";
+	}
 }

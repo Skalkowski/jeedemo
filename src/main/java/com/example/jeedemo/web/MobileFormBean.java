@@ -8,15 +8,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.example.jeedemo.domain.Mobile;
+import com.example.jeedemo.domain.Osoba;
 import com.example.jeedemo.service.MobileManager;
 
 
 @SessionScoped
 @Named("mobileF")
 public class MobileFormBean implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int id_osoba;
 	private Mobile mobile = new Mobile();
@@ -82,6 +80,17 @@ public class MobileFormBean implements Serializable {
 	public ListDataModel<Mobile> getMobileWhere (String model){
 		mobiles.setWrappedData(mobilemanager.selectMobileWhere(model));
 		return mobiles;
+	}
+	
+	public String edit(Mobile mobile) {
+        this.mobile = mobile;
+        return "updateMobile?faces-redirect=true";
+    }
+	
+	public String updateMobile() {
+		mobilemanager.updateMobile(this.mobile);
+		
+		return "showMobile?faces-redirect=true";
 	}
 	
 

@@ -46,6 +46,11 @@ public class MobileManager {
 		
 		return sql.createNamedQuery("where.mobile").setParameter("model", model).getResultList();
 	}
+    
+    public void updateMobile(Mobile mobile){
+		
+		sql.merge(mobile);
+	}
 }
 	
 
