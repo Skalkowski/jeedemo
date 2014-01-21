@@ -24,6 +24,11 @@
 					<h:commandLink value="#{msg.actionDelete}"
 						action="#{osobaF.deleteOsoba}" />
 				</h:column>
+				
+				 <h:column>
+		        <h:commandLink value="Edytuj" action="#{osobaF.edit(i)}" />
+		        </h:column>
+				
 				<h:commandButton value="Dodaj" action="addOsoba" />
 
 			</h:dataTable>

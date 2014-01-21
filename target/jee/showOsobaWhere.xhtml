@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+		<h:panelGrid columns="2">
+				<h:inputText id="imie" value="#{osobaF.imie}"
+					required="#{true}" />
+			</h:panelGrid>
+
+			<h:commandButton value="Szukaj"
+				action="#{osobaF.getOsobyWheree}" />
+			
+		
+		
+			<h:dataTable value="#{osobaF.osobyWhere}" var="i">
+				<f:facet name="header">Osoby</f:facet>
+				<h:column>
+					<f:facet name="header">imie</f:facet>
+					<h:outputText value="#{i.imie}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">nazwisko</f:facet>
+					<h:outputText value="#{i.nazwisko}" />
+				</h:column>
+
+				
+			</h:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

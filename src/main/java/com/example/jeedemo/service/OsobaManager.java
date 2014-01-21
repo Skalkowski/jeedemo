@@ -32,5 +32,9 @@ public class OsobaManager {
 			
 			return sql.createNamedQuery("where.osoba").setParameter("imie", imie).getResultList();
 		}
+		public void updateOsoba(Osoba osoba){
+			
+			sql.merge(osoba);
+		}
 	
 }

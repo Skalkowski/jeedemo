@@ -77,4 +77,15 @@ public class OsobaFormBean implements Serializable {
 		return "showOsoba";
 	}
 	
+	public String edit(Osoba osoba) {
+        this.osoba = osoba;
+        return "updateOsoba?faces-redirect=true";
+    }
+	
+	public String updateOsoba() {
+		osobamanager.updateOsoba(this.osoba);
+		
+		return "showOsoba?faces-redirect=true";
+	}
+	
 }

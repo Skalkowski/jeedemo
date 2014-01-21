@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<h:form id="personForm">
+			<h:panelGrid columns="2">
+	
+				<h:outputText value="Marka" />
+				<h:inputText id="marka" value="#{mobileF.mobile.marka}"
+					required="#{true}" />
+
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+
+				<h:outputText value="Model" />
+				<h:inputText id="model" value="#{mobileF.mobile.model}"
+					required="#{true}" />
+			</h:panelGrid>
+			<h:selectOneMenu value = "#{mobileF.id_osoba}">  <!-- zapis tego co jest do id_osoba -->
+				<f:selectItems value = "#{osobaF.osoby}" var = "i" itemValue = "#{i.id}" itemLabel = "#{i.nazwisko}">
+					
+				
+				</f:selectItems>
+			
+			
+			</h:selectOneMenu>
+
+			<h:commandButton value="Ok" action="#{mobileF.saveMobile}" />
+
+			
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
