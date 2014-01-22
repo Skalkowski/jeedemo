@@ -22,7 +22,7 @@
 				<h:column>
 					<f:facet name="header">#{msg.action}</f:facet>
 					<h:commandLink value="#{msg.actionDelete}"
-						action="#{osobaF.deleteOsoba}" />
+						action="#{osobaF.deleteOsoba}"  onclick="if (!confirm('Czy na pewno chcesz usunac ta osobe?')) return false" />
 				</h:column>
 				
 				 <h:column>
