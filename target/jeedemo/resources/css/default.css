@@ -1,49 +1,49 @@
-body {
-   margin: 0;
-   padding: 0;
-   background-color:  lightGray;
-   font-family: Verdana, sans-serif;
-   font-size: 0.9em;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<f:template xmlns:f='http:/jsf.exadel.com/template'
+   xmlns:u='http:/jsf.exadel.com/template/util'
+   xmlns="http://www.w3.org/1999/xhtml" >
 
-.heading {
-  padding: 10px;
-  background: #FFFFFF;
-  border: 1px solid blue;
-  font-size: 1.4em;
-  font-style: italic;
-  font-family: Verdana;
-  text-align: center;
-  height: 50px;
-}
+    <u:selector name=".rich-panel">
+        <u:style name="padding" value="0px" />
+        <u:style name="margin-bottom" value="5px" />
+        <u:style name="border-color" skin="newBorder" />
+    </u:selector>
+    
+    <u:selector name=".rich-panel-header">
+        <u:style name="color" skin="headerTextColor" />
+        <u:style name="border-top" value="0px" />
+        <u:style name="border-right" value="0px" />
+        <u:style name="border-left" value="0px" />
+        <u:style name="border-color" skin="newBorder" />
 
-.menuAndContent {
-  width: 100%;
-  height: 100%;
-}
+        <u:style name="background-position" value="0% 50%" />
 
-.menu {
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  border: thin solid blue;
-  position: absolute;
-  left: 10px;
-  height: 80%;
-  width: 200px;
-  background: #FFFFFF;
-  top: 90px;
-}
-
-.content {
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  border: thin solid blue;
-  background: #FFFFFF;	
-  position:absolute;
-  left: 225px; 
-  right: 65px;
-  top: 90px;
-  height: 80%;
-}
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="middle" />
+                
+                <f:attribute name="gradientHeight" value="22px" />
+                <f:attribute name="baseColor" skin="headerBackgroundColor" />
+                <f:attribute name="gradientColor" skin="headerGradientColor" />
+            </f:resource>
+        </u:style>
+        
+        <u:style name="padding" value="4px 4px 4px 14px" />
+    </u:selector>
+    
+    <u:selector name=".rich-panel-body">
+        <u:style name="padding" value="10px 10px 10px 14px" />
+        <u:style name="background-position" value="0% -496px" />
+        <u:style name="background-repeat" value="repeat-x" />
+        <u:style name="background-image">
+            <f:resource f:key="org.richfaces.renderkit.html.CustomizeableGradient">
+                <f:attribute name="valign" value="bottom" />
+                <f:attribute name="gradientType" value="plain" />
+                <f:attribute name="gradientColor" skin="intShadow" />
+                <f:attribute name="baseColor" skin="generalBackgroundColor" />
+                
+                <f:attribute name="gradientHeight" value="4px" />
+            </f:resource>
+        </u:style>
+    </u:selector>
+</f:template>
