@@ -17,12 +17,24 @@
 				<h:column>
 					<f:facet name="header">Model</f:facet>
 					<h:outputText value="#{i.model}" />
-				</h:column>				
+				</h:column>	
+					
+				<h:column>
+					<f:facet name="header">Cena</f:facet>
+					<h:outputText value="#{i.cena}" />
+				</h:column>	
+				
+				<h:column>
+					<f:facet name="header">RAM</f:facet>
+					<h:outputText value="#{i.ram}"/>
+				</h:column>		
 				
 				<h:column>
 					<f:facet name="header">Osoba</f:facet>
 					<h:outputText value="#{i.owner.nazwisko}"/>
 				</h:column>
+				
+				
 
 				<h:column>
 					<f:facet name="header">#{msg.action}</f:facet>

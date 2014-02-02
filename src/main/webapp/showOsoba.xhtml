@@ -3,6 +3,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
 	template="/templates/default.xhtml">
 
 	<ui:define name="content">
@@ -11,7 +13,9 @@
 				<f:facet name="header">#{msg.personAllLabel}</f:facet>
 				<h:column>
 					<f:facet name="header">Imie</f:facet>
-					<h:outputText value="#{i.imie}" />
+					<h:outputText value="#{i.imie}">
+					<rich:inplaceInput defaultLabel="wpisz imie"/>
+					</h:outputText>
 				</h:column>
 
 				<h:column>

@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.validation.constraints.Min;
 
 
 @Entity
@@ -20,6 +21,9 @@ import javax.persistence.NamedQuery;
 	private String marka;
 	private String model;
 	private Osoba owner;
+	private int cena;
+	private int ram;
+	private int cpu;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +53,29 @@ import javax.persistence.NamedQuery;
 	public void setOwner(Osoba owner) {
 		this.owner = owner;
 	}
+
+	@Min(100)
+	public int getCena() {
+		return cena;
+	}
+	public void setCena(int cena) {
+		this.cena = cena;
+	}
+	public int getRam() {
+		return ram;
+	}
+	public void setRam(int ram) {
+		this.ram = ram;
+	}
+	public int getCpu() {
+		return cpu;
+	}
+	public void setCpu(int cpu) {
+		this.cpu = cpu;
+	}
+	
+	
+	
 	
 	
 

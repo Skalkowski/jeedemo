@@ -12,16 +12,19 @@
 			<h:panelGrid columns="2">
 
 				<h:outputText value="Imie" />
-				<h:inputText id="imie" value="#{osobaF.osoba.imie}"
-					required="#{true}" /> <!-- osobaFormBean.getOsoba.getImie -->
+				<rich:inplaceInput value="#{osobaF.osoba.imie}"
+					defaultLabel="wpisz imie" required="#{true}">
+
+				</rich:inplaceInput>
 
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">
 
 				<h:outputText value="Nazwisko" />
-				<h:inputText id="nazwisko" value="#{osobaF.osoba.nazwisko}"
-					required="#{true}" />
+				<rich:inplaceInput value="#{osobaF.osoba.nazwisko}"
+					defaultLabel="wpisz nazwisko" required="#{true}">
+				</rich:inplaceInput>
 			</h:panelGrid>
 
 			<h:commandButton value="Ok" action="#{osobaF.addOsoba}" />
